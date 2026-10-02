@@ -1,0 +1,3 @@
+[submodule "Projects/Software/PLC_GUI/external/imgui"]
+	path = Projects/Software/PLC_GUI/external/imgui
+	url = https://github.com/ocornut/imgui.git
