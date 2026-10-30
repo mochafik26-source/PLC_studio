@@ -1,0 +1,3 @@
+/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/build/CMakeFiles/PLC_GUI.dir
+/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/build/CMakeFiles/edit_cache.dir
+/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/build/CMakeFiles/rebuild_cache.dir
