@@ -7,12 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
-
+find_package(SQLite3 REQUIRED)
 set(IMGUI_DIR ${CMAKE_SOURCE_DIR}/external/imgui)
 
 add_executable(PLC_GUI
     src/main.cpp
-
+    src/addingVar.cpp
     ${IMGUI_DIR}/imgui.cpp
     ${IMGUI_DIR}/imgui_draw.cpp
     ${IMGUI_DIR}/imgui_tables.cpp
@@ -31,3 +31,4 @@ target_link_libraries(PLC_GUI PRIVATE
     glfw
     OpenGL::GL
 )
+target_link_libraries(PLC_GUI PRIVATE SQLite3::SQLite3)

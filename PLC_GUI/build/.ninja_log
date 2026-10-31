@@ -1,9 +1,12 @@
 # ninja log v7
 3	970	1793385669505999288	CMakeFiles/PLC_GUI.dir/external/imgui/backends/imgui_impl_glfw.cpp.o	a1bb3ab6f03b7bc6
-1	1517	1793385669502862497	CMakeFiles/PLC_GUI.dir/src/main.cpp.o	c1c2a90d3174ea95
+2	710	1793477556025281495	CMakeFiles/PLC_GUI.dir/src/main.cpp.o	c1c2a90d3174ea95
 971	1914	1793385670473390128	CMakeFiles/PLC_GUI.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o	10658129137090ad
 2	5046	1793385669504511017	CMakeFiles/PLC_GUI.dir/external/imgui/imgui_tables.cpp.o	26e85346382ab00f
 1	6915	1793385669504276532	CMakeFiles/PLC_GUI.dir/external/imgui/imgui_draw.cpp.o	436ddb7563565031
 3	7639	1793385669504863140	CMakeFiles/PLC_GUI.dir/external/imgui/imgui_widgets.cpp.o	4faf0e69aa89bd25
 1	7958	1793385669504074918	CMakeFiles/PLC_GUI.dir/external/imgui/imgui.cpp.o	4c5929eb4eb1c50d
-7958	8127	1793385677459455542	PLC_GUI	e27de8d97850a5d5
+711	859	1793477556734269713	PLC_GUI	9173b67b4eef9a27
+3	530	1793476314516568810	CMakeFiles/PLC_GUI.dir/src/addingVar.cpp.o	e075c9af7822c7d4
+2	707	1793477619336340001	CMakeFiles/PLC_GUI.dir/src/main.cpp.o	c1c2a90d3174ea95
+707	860	1793477620041330725	PLC_GUI	9173b67b4eef9a27

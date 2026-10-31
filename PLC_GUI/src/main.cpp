@@ -1,13 +1,12 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-
 #include <GLFW/glfw3.h>
-
 #include <vector>
-#include <string>
 #include <cstring>
-
+#include <sqlite3.h>
+#include <iostream>
+#include "addingVar.h"
 enum class SensorType
 {
     BOOL,
@@ -27,6 +26,11 @@ struct Sensor
 
 int main()
 {
+    sqlite3_open("src/VariablesTab.db", &db);
+
+
+
+
     // Window visibility
     bool showAddSensor = false;
 
@@ -333,6 +337,7 @@ int main()
                         newBoolValue = false;
                         newIntValue = 0;
                         newFloatValue = 0.0f;
+                        AddVariable(newSensorName, "INT", "IW0", 25);
 
                         showAddSensor = false;
                     }
@@ -375,6 +380,6 @@ int main()
 
     glfwDestroyWindow(window);
     glfwTerminate();
-
+        sqlite3_close(db);
     return 0;
 }
