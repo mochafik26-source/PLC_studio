@@ -2,6 +2,7 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include <GLFW/glfw3.h>
+#include <string>
 #include <vector>
 #include <cstring>
 #include <sqlite3.h>
@@ -27,6 +28,7 @@ struct Sensor
 int main()
 {
     sqlite3_open("src/VariablesTab.db", &db);
+
 
 
 
@@ -71,23 +73,30 @@ int main()
     // PLC variables
     bool plcRunning = false;
 
-    char motorName[32] = "Motor";
-    bool motorValue = false;
+
 
     // Sensors stored dynamically
     std::vector<Sensor> sensors;
 
-    // Initial sensor
-    Sensor initialSensor;
-    std::strncpy(
-        initialSensor.name,
-        "Sensor_1",
-        sizeof(initialSensor.name) - 1
-    );
-    initialSensor.type = SensorType::BOOL;
-    initialSensor.boolValue = false;
+    std::vector<Variable> variables = GetVariables();
 
-    sensors.push_back(initialSensor);
+    for (const Variable& var : variables)
+    {
+        Sensor initialSensor;
+
+        std::strncpy(
+            initialSensor.name,
+            var.name.c_str(),
+            sizeof(initialSensor.name) - 1
+        );
+
+        initialSensor.name[sizeof(initialSensor.name) - 1] = '\0';
+
+        initialSensor.type = SensorType::BOOL;
+        initialSensor.boolValue = false;
+
+        sensors.push_back(initialSensor);
+    }
 
     // New sensor form
     static char newSensorName[64] = "Sensor_2";
@@ -159,21 +168,7 @@ int main()
 
             ImGui::TableHeadersRow();
 
-            // Motor row
-            ImGui::TableNextRow();
 
-            ImGui::TableSetColumnIndex(0);
-            ImGui::InputText(
-                "##motorName",
-                motorName,
-                sizeof(motorName)
-            );
-
-            ImGui::TableSetColumnIndex(1);
-            ImGui::Text("BOOL");
-
-            ImGui::TableSetColumnIndex(2);
-            ImGui::Checkbox("##motorValue", &motorValue);
 
             // Dynamic sensor rows
             for (size_t i = 0; i < sensors.size(); ++i)
@@ -277,24 +272,45 @@ int main()
 
                 if (newSensorType == 0)
                 {
-                    ImGui::Checkbox(
-                        "##NewBoolValue",
-                        &newBoolValue
-                    );
+                    ImGui::Checkbox("##NewBoolValue", &newBoolValue);
                 }
                 else if (newSensorType == 1)
                 {
-                    ImGui::InputInt(
-                        "##NewIntValue",
-                        &newIntValue
-                    );
+                    ImGui::InputInt("##NewIntValue", &newIntValue);
                 }
                 else
                 {
-                    ImGui::InputFloat(
-                        "##NewFloatValue",
-                        &newFloatValue
-                    );
+                    ImGui::InputFloat("##NewFloatValue", &newFloatValue);
+                }
+
+                if (ImGui::Button("Add Sensor"))
+                {
+                    Sensor initialSensor;
+
+                    initialSensor.name = newSensorName;
+                    initialSensor.type = static_cast<SensorType>(newSensorType);
+
+                    const char* typeName;
+
+                    switch (newSensorType)
+                    {
+                        case 0:
+                            typeName = "BOOL";
+                            break;
+
+                        case 1:
+                            typeName = "INT";
+                            break;
+
+                        case 2:
+                            typeName = "FLOAT";
+                            break;
+
+                        default:
+                            typeName = "BOOL";
+                            break;
+                    }
+
                 }
 
                 ImGui::Separator();
@@ -322,6 +338,7 @@ int main()
                         sensor.floatValue = newFloatValue;
 
                         sensors.push_back(sensor);
+                        AddVariable(newSensorName, typeName, "IW0", 25);
 
                         // Reset the form for the next sensor
                         std::strncpy(
@@ -337,7 +354,6 @@ int main()
                         newBoolValue = false;
                         newIntValue = 0;
                         newFloatValue = 0.0f;
-                        AddVariable(newSensorName, "INT", "IW0", 25);
 
                         showAddSensor = false;
                     }

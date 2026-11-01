@@ -46,7 +46,7 @@ build cmake_object_order_depends_target_PLC_GUI: phony || .
 
 build CMakeFiles/PLC_GUI.dir/src/main.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /home/mohamed/Projects/Software/PLC_studio/PLC_GUI/src/main.cpp || cmake_object_order_depends_target_PLC_GUI
   DEP_FILE = CMakeFiles/PLC_GUI.dir/src/main.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -include cstdarg
   INCLUDES = -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends
   OBJECT_DIR = CMakeFiles/PLC_GUI.dir
   OBJECT_FILE_DIR = CMakeFiles/PLC_GUI.dir/src
@@ -54,7 +54,7 @@ build CMakeFiles/PLC_GUI.dir/src/main.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /h
 
 build CMakeFiles/PLC_GUI.dir/src/addingVar.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /home/mohamed/Projects/Software/PLC_studio/PLC_GUI/src/addingVar.cpp || cmake_object_order_depends_target_PLC_GUI
   DEP_FILE = CMakeFiles/PLC_GUI.dir/src/addingVar.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -include cstdarg
   INCLUDES = -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends
   OBJECT_DIR = CMakeFiles/PLC_GUI.dir
   OBJECT_FILE_DIR = CMakeFiles/PLC_GUI.dir/src
@@ -62,7 +62,7 @@ build CMakeFiles/PLC_GUI.dir/src/addingVar.cpp.o: CXX_COMPILER__PLC_GUI_unscanne
 
 build CMakeFiles/PLC_GUI.dir/external/imgui/imgui.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/imgui.cpp || cmake_object_order_depends_target_PLC_GUI
   DEP_FILE = CMakeFiles/PLC_GUI.dir/external/imgui/imgui.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -include cstdarg
   INCLUDES = -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends
   OBJECT_DIR = CMakeFiles/PLC_GUI.dir
   OBJECT_FILE_DIR = CMakeFiles/PLC_GUI.dir/external/imgui
@@ -70,7 +70,7 @@ build CMakeFiles/PLC_GUI.dir/external/imgui/imgui.cpp.o: CXX_COMPILER__PLC_GUI_u
 
 build CMakeFiles/PLC_GUI.dir/external/imgui/imgui_draw.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/imgui_draw.cpp || cmake_object_order_depends_target_PLC_GUI
   DEP_FILE = CMakeFiles/PLC_GUI.dir/external/imgui/imgui_draw.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -include cstdarg
   INCLUDES = -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends
   OBJECT_DIR = CMakeFiles/PLC_GUI.dir
   OBJECT_FILE_DIR = CMakeFiles/PLC_GUI.dir/external/imgui
@@ -78,7 +78,7 @@ build CMakeFiles/PLC_GUI.dir/external/imgui/imgui_draw.cpp.o: CXX_COMPILER__PLC_
 
 build CMakeFiles/PLC_GUI.dir/external/imgui/imgui_tables.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/imgui_tables.cpp || cmake_object_order_depends_target_PLC_GUI
   DEP_FILE = CMakeFiles/PLC_GUI.dir/external/imgui/imgui_tables.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -include cstdarg
   INCLUDES = -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends
   OBJECT_DIR = CMakeFiles/PLC_GUI.dir
   OBJECT_FILE_DIR = CMakeFiles/PLC_GUI.dir/external/imgui
@@ -86,7 +86,7 @@ build CMakeFiles/PLC_GUI.dir/external/imgui/imgui_tables.cpp.o: CXX_COMPILER__PL
 
 build CMakeFiles/PLC_GUI.dir/external/imgui/imgui_widgets.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_PLC_GUI
   DEP_FILE = CMakeFiles/PLC_GUI.dir/external/imgui/imgui_widgets.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -include cstdarg
   INCLUDES = -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends
   OBJECT_DIR = CMakeFiles/PLC_GUI.dir
   OBJECT_FILE_DIR = CMakeFiles/PLC_GUI.dir/external/imgui
@@ -94,7 +94,7 @@ build CMakeFiles/PLC_GUI.dir/external/imgui/imgui_widgets.cpp.o: CXX_COMPILER__P
 
 build CMakeFiles/PLC_GUI.dir/external/imgui/backends/imgui_impl_glfw.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends/imgui_impl_glfw.cpp || cmake_object_order_depends_target_PLC_GUI
   DEP_FILE = CMakeFiles/PLC_GUI.dir/external/imgui/backends/imgui_impl_glfw.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -include cstdarg
   INCLUDES = -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends
   OBJECT_DIR = CMakeFiles/PLC_GUI.dir
   OBJECT_FILE_DIR = CMakeFiles/PLC_GUI.dir/external/imgui/backends
@@ -102,7 +102,7 @@ build CMakeFiles/PLC_GUI.dir/external/imgui/backends/imgui_impl_glfw.cpp.o: CXX_
 
 build CMakeFiles/PLC_GUI.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o: CXX_COMPILER__PLC_GUI_unscanned_ /home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_PLC_GUI
   DEP_FILE = CMakeFiles/PLC_GUI.dir/external/imgui/backends/imgui_impl_opengl3.cpp.o.d
-  FLAGS = -std=gnu++17
+  FLAGS = -std=gnu++17 -include cstdarg
   INCLUDES = -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui -I/home/mohamed/Projects/Software/PLC_studio/PLC_GUI/external/imgui/backends
   OBJECT_DIR = CMakeFiles/PLC_GUI.dir
   OBJECT_FILE_DIR = CMakeFiles/PLC_GUI.dir/external/imgui/backends

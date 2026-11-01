@@ -1,6 +1,6 @@
 #include "addingVar.h"
 #include <iostream>
-
+#include <vector>
 sqlite3* db = nullptr;
 
 // AddVariable() implementation
@@ -30,4 +30,30 @@ void AddVariable(const char* name,
     }
 
     sqlite3_finalize(stmt);
+}
+
+
+std::vector<Variable> GetVariables()
+{
+    std::vector<Variable> variables;
+
+    const char* sql = "SELECT * FROM variables";
+
+    sqlite3_stmt* stmt;
+
+    sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr);
+
+    while (sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        Variable var;
+
+        var.name = (const char*)sqlite3_column_text(stmt, 1);
+        var.value = sqlite3_column_int(stmt, 4);
+
+        variables.push_back(var);
+    }
+
+    sqlite3_finalize(stmt);
+
+    return variables;
 }
