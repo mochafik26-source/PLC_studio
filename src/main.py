@@ -1,4 +1,5 @@
 
+
 import sys
 
 from PySide6.QtWidgets import (
@@ -12,6 +13,7 @@ from PySide6.QtWidgets import (
     QLabel,
     QHeaderView,
     QMessageBox,
+    QSizePolicy,
 )
 from PySide6.QtCore import Qt
 
@@ -23,6 +25,7 @@ from PySide6.QtCore import Qt
 table = None
 footer = None
 status = None
+window = None
 
 
 # =========================
@@ -47,6 +50,7 @@ def add_variable():
     ]
 
     for column, value in enumerate(values):
+
         item = QTableWidgetItem(value)
 
         if column == 0:
@@ -113,7 +117,7 @@ def load_variables():
 
 
 # =========================
-# Interface
+# Application
 # =========================
 
 app = QApplication(sys.argv)
@@ -122,12 +126,49 @@ window = QWidget()
 window.setWindowTitle("PLC Studio | Variables")
 window.resize(1100, 650)
 
-main_layout = QVBoxLayout(window)
-main_layout.setContentsMargins(20, 20, 20, 20)
-main_layout.setSpacing(15)
+
+# =========================
+# Main horizontal layout
+# =========================
+
+main_layout = QHBoxLayout(window)
+main_layout.setContentsMargins(0, 0, 0, 0)
+main_layout.setSpacing(0)
 
 
+# =========================
+# Sidebar
+# =========================
+
+sidebar = QWidget()
+sidebar.setObjectName("sidebar")
+sidebar.setFixedWidth(220)
+
+sidebar.setSizePolicy(
+    QSizePolicy.Policy.Fixed,
+    QSizePolicy.Policy.Expanding
+)
+
+main_layout.addWidget(sidebar)
+
+
+# =========================
+# Main content
+# =========================
+
+content = QWidget()
+content.setObjectName("content")
+
+content_layout = QVBoxLayout(content)
+content_layout.setContentsMargins(25, 25, 25, 20)
+content_layout.setSpacing(15)
+
+main_layout.addWidget(content, 1)
+
+
+# =========================
 # Header
+# =========================
 
 header = QHBoxLayout()
 
@@ -141,10 +182,12 @@ header.addWidget(title)
 header.addStretch()
 header.addWidget(status)
 
-main_layout.addLayout(header)
+content_layout.addLayout(header)
 
 
+# =========================
 # Toolbar
+# =========================
 
 toolbar = QHBoxLayout()
 
@@ -161,10 +204,12 @@ toolbar.addWidget(delete_button)
 toolbar.addWidget(refresh_button)
 toolbar.addStretch()
 
-main_layout.addLayout(toolbar)
+content_layout.addLayout(toolbar)
 
 
+# =========================
 # Variables table
+# =========================
 
 table = QTableWidget(0, 5)
 
@@ -192,15 +237,17 @@ table.setAlternatingRowColors(True)
 table.setShowGrid(False)
 table.verticalHeader().setVisible(False)
 
-main_layout.addWidget(table)
+content_layout.addWidget(table, 1)
 
 
+# =========================
 # Footer
+# =========================
 
 footer = QLabel("0 variables")
 footer.setObjectName("footer")
 
-main_layout.addWidget(footer)
+content_layout.addWidget(footer)
 
 
 # =========================
@@ -208,11 +255,21 @@ main_layout.addWidget(footer)
 # =========================
 
 window.setStyleSheet("""
+
     QWidget {
         background-color: #17191f;
         color: #d8dee9;
         font-family: JetBrains Mono;
         font-size: 12px;
+    }
+
+    QWidget#sidebar {
+        background-color: #181818;
+        border-right: 1px solid #303744;
+    }
+
+    QWidget#content {
+        background-color: #17191f;
     }
 
     QLabel#title {
@@ -260,6 +317,7 @@ window.setStyleSheet("""
         padding: 8px;
         border-bottom: 1px solid #303744;
     }
+
 """)
 
 
